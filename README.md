@@ -1,14 +1,16 @@
 # Punk Skill
 
-Punk Skill 是一组给 AI Agent 使用的视觉生成 Skills。安装后，可以用它把文章生成封面图，或把人物、宠物、物品照片生成头像图。
+Punk Skill 是一组给 OpenAI Codex 使用的视觉生成 Skills。安装后，可以用它把文章生成封面图，或把人物、宠物、物品照片生成头像图。
 
 ## 安装
 
-把下面这段话发给支持 Skills 的 AI Agent：
+把下面这段话发给 OpenAI Codex：
 
 ```text
 请安装这个仓库里的全部 Skills：https://github.com/adrianpunk/Punk-Skill
 ```
+
+每个 `skills/{skill-id}/` 目录都包含自身的风格、参考文件和验证脚本，可以独立复制或安装，不依赖仓库根目录的运行资源。
 
 安装后可以这样调用：
 

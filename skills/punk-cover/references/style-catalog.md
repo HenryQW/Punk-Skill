@@ -1,8 +1,6 @@
 # Punk Cover Style Catalog
 
-Use these user-visible style names. This catalog references reusable style atoms in the repository-level `styles/` directory. `punk-cover` may list only styles whose `META.md` metadata includes `cover` or `poster` in `outputs`.
-
-Do not copy prompt bodies into this catalog. Read the selected style's `META.md` and `STYLE.md` after the user chooses a style.
+Use only these user-visible styles. Paths are relative to the skill root; load one selected `META.md` and `STYLE.md` only after selection.
 
 | Style | Style ID | Metadata | Style | Best For |
 | --- | --- | --- | --- | --- |
@@ -38,36 +36,9 @@ Do not copy prompt bodies into this catalog. Read the selected style's `META.md`
 | kimi风格 | `kimi-stlye` | `styles/kimi-stlye/META.md` | `styles/kimi-stlye/STYLE.md` | AI, research, products, materials, systems, and creative projects needing a top-down archival still life on a pale gray-green light table. |
 | 极简视觉隐喻风 | `minimal-visual-metaphor` | `styles/minimal-visual-metaphor/META.md` | `styles/minimal-visual-metaphor/STYLE.md` | Business technology, AI, products, organizations, workflows, and system change needing one quiet physical action metaphor with premium editorial restraint. |
 
-## Non-Cover Style Atoms
+## Recommendation Priority
 
-These reusable style atoms exist in `styles/`, but are not part of the default `punk-cover` menu because their `outputs` metadata does not include `cover` or `poster`.
-
-| Style | Style ID | Outputs |
-| --- | --- | --- |
-| 像素头像 | `pixel-avatar` | `avatar` |
-| 凌乱蜡笔宠物肖像 | `messy-crayon-pet-portrait` | `portrait` |
-| 拍立得纪念卡 | `polaroid-keepsake` | `polaroid`, `portrait` |
-| 时尚速写观察页 | `fashion-sketch-observation` | `portrait`, `editorial_page` |
-| 怪诞灵魂手绘 | `grotesque-soul-sketch` | `portrait` |
-
-## Automatic Recommendations
-
-- For Xiaohongshu tutorials, prefer `巨型透视中文标题`, `超大标题图文穿插`, `黑红剪影`, `复古手撕拼贴`, `方块世界`, or `积木世界`.
-- For WeChat public account explainers, prefer `商业杂志头版`, `黑红剪影`, `咨询报告视觉`, `黑白极简概念`, `复古油墨点阵隐喻`, `极简公共空间摄影`, `复古弥散渐变`, `黑色复古现代主义封面`, or `法式极简墨线海报`.
-- For X covers, prefer `超大标题图文穿插`, `商业杂志头版`, `黑红剪影`, `黑白极简概念`, `复古油墨点阵隐喻`, `银色锡纸蓝字`, `黑白灰先锋几何`, `极简公共空间摄影`, `语义转译极简`, or `法式极简墨线海报`.
-- For short-title covers or posters needing one central subject, bold magazine typography, and visible foreground/background text interleaving, prefer `超大标题图文穿插`.
-- For concepts, methods, relationships, growth, change, or emotional themes that can be expressed through one clear spatial action in tactile layered paper, prefer `立体纸雕概念海报`.
-- For design, art, method, brand, writing, philosophy, or abstract themes that need authentic paper relief, flexible editorial typography, and one restrained metaphor, prefer `纸面击凸压凹封面`.
-- For philosophical, critical, mechanism-heavy, or surreal themes explicitly requesting monochrome engraving, etching, copperplate, wood engraving, or antique scientific illustration, prefer `黑白复古蚀刻版画封面`.
-- For direction, distance, scale, loops, hope, accumulation, attention, AI-era tension, or other abstract themes that can become one playable pixel-world mechanic, prefer `Godot 2D 像素隐喻海报`.
-- For workplace, organization, efficiency, tools, relationships, paths, knots, interruptions, or reconnection themes needing tactile material contrast and one sparse line metaphor, prefer `OSB 工业蓝线条隐喻`.
-- For video covers, technology explainers, AI tools, systems, code, psychology, or high-conflict social themes needing anime keyframe energy, prefer `复古日本科幻动画`.
-- For AI, coding, digital work, future tools, or contemporary topics that need a human-centered retro metaphor, prefer `复古时代错位编辑封面`.
-- For tutorials, product launches, workflow automation, tool integrations, brand collaborations, or two-logo partnership covers, prefer `品牌协同连接`.
-- For research-heavy material, prefer `科研期刊概念`.
-- For AI research, knowledge systems, design research, or quiet report-like editorial covers, prefer `Anthropic Research 风格`.
-- For business technology, AI, products, organizations, workflows, or system change needing one physical action metaphor, prefer `极简视觉隐喻风`.
-- For project archives, research desks, material studies, product concepts, or object-based visual metaphors, prefer `kimi风格`.
-- For a single abstract term, prefer `语义转译极简`, `复古油墨点阵隐喻`, `黑白极简概念`, or `法式极简墨线海报`.
-- For architecture, landmarks, cities, travel posters, or place-focused essays, prefer `先锋复古建筑海报`.
-- For events, sports, launches, city-scale topics, or covers needing maximum first-glance impact, prefer `彩色新构成主义巨构海报`.
+1. Match explicit visual requirements and the table’s `Best For` description.
+2. For Xiaohongshu tutorials, prefer `巨型透视中文标题`, `超大标题图文穿插`, `黑红剪影`, `复古手撕拼贴`, `方块世界`, or `积木世界`.
+3. For WeChat explainers, prefer `商业杂志头版`, `咨询报告视觉`, `黑白极简概念`, `复古油墨点阵隐喻`, `极简公共空间摄影`, or `法式极简墨线海报`.
+4. For X, prefer `超大标题图文穿插`, `商业杂志头版`, `黑白极简概念`, `复古油墨点阵隐喻`, `银色锡纸蓝字`, or `黑白灰先锋几何`.

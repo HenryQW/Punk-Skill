@@ -1,164 +1,57 @@
 # Punk Cover Prompt Blueprint
 
-This blueprint defines the complete cover-prompt shape used by `punk-cover`.
-
-`styles/{style-id}/STYLE.md` is a reusable visual style atom. This blueprint is the cover shape. The final `prompts/01-cover.md` must compile the selected style atom into this cover shape and read like one complete image-generation prompt.
-
-Do not paste this blueprint verbatim with empty placeholders. Fill it with derived article fields and selected style anchors.
-
-## Required Final Prompt Structure
+Compile this shape with derived content plus one selected style’s `META.md` anchors and `STYLE.md` visual language. Rewrite it as a natural, complete prompt; never leave placeholders or append the raw style atom.
 
 ```text
-# {style name} cover prompt
+# {style_name} cover prompt
 
-You are a top-tier cover art director, editorial visual designer, typography designer, and image-generation prompt director.
+Create one {platform} editorial cover at {ratio}{output_dimensions_if_any} using {style_name} ({style_id}). The style must organize every visual decision, not act as a decorative filter.
 
-Create one single {platform} cover image with aspect ratio {ratio}.
+## Content
 
-The cover must use the selected visual style: {style name} / {style id}.
-This style is not a decorative filter. Every major cover decision must be implemented through this style's visual language.
-
-## Input
-
-- Title/topic: {title_or_topic}
-- Title hierarchy:
-  - A-layer / main visual title: {short_high_impact_title}
-  - B-layer / complete title: {complete_title}
-  - C-layer / subtitle or small text: {subtitle}
-- Platform: {platform}
-- Aspect ratio: {ratio}
-- Output dimensions: {output_dimensions_or_auto}
-- Output mode: {single_image_or_one_member_of_multi_size_suite}
-- Language: {language}
-- Use case: {use_case}
-- Short context summary: {summary}
+- A-layer / short visual title: {short_high_impact_title}
+- B-layer / complete title or meaning: {complete_title}
+- C-layer / optional subtitle or context: {subtitle}
+- Summary: {summary}
 - Visual subject: {visual_subject}
-- Audience: {audience}
+- Audience and use: {audience}; {use_case}
 - Mood: {mood}
-- Visual metaphor: {metaphor}
-- Banned elements: {banned_elements}
+- One visual metaphor: {metaphor}
+- Language: {language}
+- Avoid: {banned_elements}
 
-## Content Understanding
+Use only these derived fields. Do not copy the source article body or expose analysis. At first glance the topic must be clear; at second glance the metaphor should emerge.
 
-Understand the source material before composing the image, but do not output analysis in the image.
+## Style
 
-Use only derived fields from the article. Do not paste the original article body into the image, prompt, metadata, or small text system.
+Apply visibly:
+- Anchors: {style_anchors}
+- Cover adaptation: {cover_shape_adaptation}
+- Preserve: {must_preserve}
+- Avoid: {avoid_when_applying_to_cover}
+- Color, material, and texture: {color_material_texture_rules}
 
-The cover must communicate:
-
-1. What the topic is at first glance.
-2. What the core tension, insight, or metaphor is at second glance.
-3. Why this cover belongs to the selected visual style, not a generic cover template.
-
-## Cover Objective
-
-Generate a deliberate editorial cover, not a generic illustration, PPT cover, course cover, advertisement, or information card.
-
-The main title must be complete, accurate, and clearly readable. If the source title is long, use the title hierarchy above:
-
-- A-layer: a short high-impact visual title.
-- B-layer: the complete title or complete meaning.
-- C-layer: subtitle, context line, label, or small editorial text.
-
-## Style Application
-
-Apply the selected style's non-negotiable anchors:
-
-- Style anchors: {style_anchors}
-- Cover-shape adaptation: {cover_shape_adaptation}
-- Must preserve: {must_preserve}
-- Style-specific avoid list: {avoid_when_applying_to_cover}
-
-These anchors must visibly affect:
-
-1. Main title treatment.
-2. Visual subject construction.
-3. Background or spatial system.
-4. Supporting text and label system.
-5. Texture, material, color, or rendering method.
-6. The visual metaphor.
-
-Do not mention a style trait unless it is actually visible in the final image.
+Express title, subject, background, supporting text, texture, palette, and metaphor through this one style. Do not mention traits that are not visible.
 
 ## Composition
 
-Design a cover-specific composition using the selected style.
-
-Define:
-
 - Primary visual center: {primary_visual_center}
-- Secondary visual elements: {secondary_visual_elements}
-- Background or space system: {background_space_system}
+- Secondary elements: {secondary_visual_elements}
+- Background/space: {background_space_system}
 - Foreground/background layering: {layering_strategy}
 - Reading path: {reading_path}
-- Shareability constraint: the topic must be legible in a fast social feed.
 
-## Image-Text Relationship
-
-The title, subject, and style must be fused.
-
-The title must not be a caption pasted on top of an unrelated image. The selected style must determine how the text exists in the scene:
-
-- Where the main title lives.
-- How the subtitle is carried.
-- How labels, dates, tags, or small text behave.
-- How images, objects, textures, or geometry interact with letterforms.
+Compose specifically for {ratio}; keep the topic legible in a fast social feed. Fuse text and image instead of placing a caption over an unrelated illustration. The style determines where text lives and how it interacts with objects, textures, geometry, and depth.
 
 ## Typography
 
-Use typography appropriate to {style name}.
+When text is requested, keep the complete title accurate and readable; do not misspell, crop, or excessively distort it. Use little supporting text, with correct Chinese characters where applicable. Only when the user or selected style explicitly requests no text, use title fields solely to derive the visual and render no typography. Supporting text must clarify the concept, never become filler.
 
-Rules:
+## Constraints
 
-- Preserve correct Chinese characters.
-- Keep the main title readable.
-- Do not crop, misspell, or over-distort key text.
-- Use only a small amount of supporting text.
-- Supporting text must deepen the cover concept, not become random filler.
+Avoid generic illustration, PPT/course-cover layouts, information cards, e-commerce ads, unrelated decoration, unreadable or missing titles, copied article text, and {avoid_when_applying_to_cover}.
 
-## Color, Material, and Texture
-
-Use the selected style's color, material, and texture logic:
-
-{color_material_texture_rules}
-
-The result must feel like a finished cover artwork in this style, not a style word applied superficially.
-
-## Negative Constraints
-
-Avoid:
-
-- {banned_elements}
-- Generic cover layout.
-- PPT or course-cover feel.
-- E-commerce advertisement feel.
-- Unrelated decoration.
-- Missing or unreadable main title.
-- Long article text copied into the image.
-- Style-specific failures: {avoid_when_applying_to_cover}
-
-## Final Standard
-
-Generate only one final image.
-
-Do not output explanations, alternatives, grids, contact sheets, or multi-option compositions.
-
-The final image must satisfy all of these:
-
-1. It is clearly a {platform} cover at {ratio}.
-2. It communicates the article topic quickly.
-3. It uses the selected style as the visible organizing language.
-4. The main title is readable and accurate.
-5. The visual metaphor is present and style-native.
-6. The result has the completeness and specificity of a legacy full cover prompt, while keeping the selected style reusable as an independent atom.
+Generate one final image only—no explanations, alternatives, grids, contact sheets, mockups, or multi-option compositions.
 ```
 
-## Compilation Notes
-
-- Rewrite the blueprint into a natural final prompt. Do not leave meta-instructions like `{primary_visual_center}` unresolved.
-- For a multi-size suite, compile this blueprint once per target ratio or dimension. Each compiled prompt must request exactly one independently composed image and identify its target dimensions; do not ask one prompt to create a grid or contact sheet.
-- Preserve the suite's content, metaphor, style identity, material, and palette across targets, while recomposing scale, typography, whitespace, reading direction, and spatial behavior for each ratio.
-- Use the selected `META.md` metadata when it provides structured fields.
-- Use `STYLE.md` to recover style language that is not yet structured in metadata.
-- The final prompt may add style-specific sections when needed, but must not add another style.
-- The final prompt should be longer and more complete than the raw style atom, because it includes cover shape, title hierarchy, and content adaptation.
+For a multi-size suite, compile this blueprint separately for every target. Preserve content, metaphor, style, material, and palette, but independently recompose scale, typography, whitespace, reading direction, layering, and space. Each prompt requests one image and names its target ratio or dimensions.

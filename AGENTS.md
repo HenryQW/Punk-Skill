@@ -2,17 +2,17 @@
 
 ## 项目结构与模块组织
 
-本仓库用于维护可复用的 Codex Skills。当前核心技能位于 `skills/punk-cover/`。
+本仓库用于维护可复用的 Codex Skills。核心技能位于 `skills/punk-cover/` 和 `skills/punk-avatar/`，每个技能都包含自己的完整运行资源。
 
 - `README.md`：说明安装方式、使用示例、支持风格和公开目录结构。
-- `skills/punk-cover/SKILL.md`：技能的主要行为规范和工作流，是最重要的修改入口。
-- `skills/punk-cover/agents/openai.yaml`：面向 Agent 的配置文件。
-- `skills/punk-cover/references/style-catalog.md`：封面风格目录。
-- `skills/punk-cover/references/cover-prompt-blueprint.md`：封面最终提示词的通用组装骨架。
-- `styles/{style-id}/META.md`：风格元数据、适用范围、推荐依据和封面适配规则。
-- `styles/{style-id}/STYLE.md`：可复用视觉风格正文。
-- `screenshots/punk-cover-styles/`：README 中使用的风格示例图。
-- `exports/` 和运行时生成的 `punk-assets/` 属于本地产物，不应作为核心源码维护。
+- `skills/{skill-id}/SKILL.md`：技能的主要行为规范和工作流，是最重要的修改入口。
+- `skills/{skill-id}/agents/openai.yaml`：面向 Agent 的配置文件。
+- `skills/{skill-id}/references/`：风格目录和最终提示词组装骨架。
+- `skills/{skill-id}/styles/{style-id}/META.md`：风格元数据、适用范围和推荐依据。
+- `skills/{skill-id}/styles/{style-id}/STYLE.md`：可复用视觉风格正文。
+- `skills/{skill-id}/scripts/`：该技能的轻量验证脚本。
+- `screenshots/`：README 中使用的风格示例图。
+- 运行时生成的 `punk-assets/` 属于本地产物，不应作为核心源码维护。
 
 ## 构建、测试与开发命令
 
@@ -20,8 +20,8 @@
 
 ```sh
 rg --files
-sed -n '1,220p' skills/punk-cover/SKILL.md
-sed -n '1,120p' skills/punk-cover/references/style-catalog.md
+node skills/punk-cover/scripts/validate-punk-cover.mjs
+node skills/punk-avatar/scripts/validate-punk-avatar.mjs
 git diff --check
 ```
 
@@ -31,7 +31,7 @@ git diff --check
 
 Markdown 内容应简洁、直接、可执行。行为规则优先使用清晰标题和短列表表达。已有中文用户文案应保持中文，除非本次修改明确调整产品表达。
 
-风格目录使用小写 kebab-case，例如 `styles/business-magazine-front-page/`。技能目录同样使用小写加连字符，例如 `skills/punk-cover/`。YAML 文件使用两个空格缩进。
+风格目录使用小写 kebab-case，例如 `skills/punk-cover/styles/business-magazine-front-page/`。技能目录同样使用小写加连字符，例如 `skills/punk-cover/`。YAML 文件使用两个空格缩进。
 
 ## 测试指南
 
@@ -42,7 +42,7 @@ Markdown 内容应简洁、直接、可执行。行为规则优先使用清晰�
 - 长文章会被摘要化，不会原样写入元数据；
 - 输出路径遵循 `punk-assets/punk-cover/{slug}/...`。
 
-新增风格时，需要同步更新 `styles/{style-id}/META.md`、`styles/{style-id}/STYLE.md`、风格目录、README 风格表和相关截图引用。
+新增风格时，需要同步更新对应技能内的 `styles/{style-id}/META.md`、`styles/{style-id}/STYLE.md`、风格目录、README 风格表和相关截图引用。
 
 ## Commit 与 Pull Request 规范
 

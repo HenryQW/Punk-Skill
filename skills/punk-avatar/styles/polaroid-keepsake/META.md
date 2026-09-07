@@ -3,7 +3,7 @@
 ```yaml
 id: polaroid-keepsake
 name: 拍立得纪念卡
-input_modes: [image, text]
+input_modes: [image]
 subjects: [pet]
 outputs: [polaroid, portrait]
 default_ratio: "3:4"
