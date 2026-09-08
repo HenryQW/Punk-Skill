@@ -22,6 +22,7 @@ if (!failures.length) {
     "exactly one bundled style",
     "punk-assets/punk-cover/{slug}/prompts/cover.md",
     "Never copy the source body",
+    "Open Graph (OG): `2400 × 1260` (`40:21`)",
     "Never call image-generation tools or generate, download, or save image files.",
   ]) {
     if (!skill.includes(contract)) fail(`SKILL.md missing contract: ${contract}`);

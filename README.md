@@ -31,7 +31,7 @@ Use $punk-cover to create a WeChat cover prompt in 商业杂志头版 style:
 这里粘贴文章内容
 ```
 
-支持小红书、微信公众号、X / Twitter 和自定义比例。完整风格列表见 [`skills/punk-cover/references/style-catalog.md`](./skills/punk-cover/references/style-catalog.md)。
+支持小红书、微信公众号、X / Twitter、Open Graph（`2400 × 1260`）和自定义比例。完整风格列表见 [`skills/punk-cover/references/style-catalog.md`](./skills/punk-cover/references/style-catalog.md)。
 
 ### `punk-avatar`
 

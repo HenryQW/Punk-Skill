@@ -19,7 +19,7 @@ Create one editorial cover prompt per target by compiling derived content and ex
 1. **Derive content.** Preserve the complete user title or topic. From long input, derive only a concise title hierarchy, 1–3 sentence summary, visual subject, audience, mood, one metaphor, and banned elements. Never copy the source body into the prompt or image.
 
 2. **Resolve the target.**
-   - Xiaohongshu: `3:4`; WeChat public account: `2.35:1`; X: `5:2`.
+   - Xiaohongshu: `3:4`; WeChat public account: `2.35:1`; X: `5:2`; Open Graph (OG): `2400 × 1260` (`40:21`).
    - Preserve a custom ratio. Derive it from exact dimensions when no ratio is given; ask which controls if dimensions and ratio conflict.
    - Default to one prompt. A multi-size suite requires at least two explicit targets and one independently composed prompt per target—never reuse one composition with crop, stretch, padding, grid, or contact-sheet instructions.
    - Ask for the platform/ratio only when none is provided and the user has not said `auto`. Under `auto`, infer the platform from stated use; with no publication context, use `3:4`.
