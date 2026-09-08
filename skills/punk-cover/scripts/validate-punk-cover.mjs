@@ -22,8 +22,12 @@ if (!failures.length) {
     "exactly one bundled style",
     "punk-assets/punk-cover/{slug}/prompts/cover.md",
     "Never copy the source body",
+    "Never call image-generation tools or generate, download, or save image files.",
   ]) {
     if (!skill.includes(contract)) fail(`SKILL.md missing contract: ${contract}`);
+  }
+  for (const forbidden of ["image_gen", "/cover.png"]) {
+    if (skill.includes(forbidden)) fail(`SKILL.md contains forbidden image output: ${forbidden}`);
   }
 
   const stylesDir = path.join(skillDir, "styles");

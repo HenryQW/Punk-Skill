@@ -19,7 +19,7 @@ style_anchors:
 cover_shape_adaptation:
   - derive one high-impact core word for the first visual when the source title is long, while preserving the complete title as secondary information
   - recompose subject scale, title placement, whitespace, reading direction, paper-layer direction, and information density for every target ratio
-  - for a requested multi-size suite, compile and generate one independently composed image per ratio while preserving the same metaphor, material, palette, and identity
+  - for a requested multi-size suite, compile one independently composed prompt per ratio while preserving the same metaphor, material, palette, and identity
   - reduce information in ultra-wide or ultra-tall formats and emphasize one simple visual relationship
 must_preserve:
   - real paper-cut construction rather than a flat illustration with a paper texture filter
@@ -35,7 +35,7 @@ avoid_when_applying_to_cover:
 
 ## Style Intent
 
-把主题中最重要的关系、矛盾或变化提炼为一个真实立体纸雕隐喻，以精确纸层、克制留白、柔和光影和图文一体的编辑排版完成高级概念海报。该 style 负责纸张材质、隐喻转译、空间关系、比例重构和视觉气质；平台确认、文章摘要、文件保存和生成工具调用由 `punk-cover` 负责。
+把主题中最重要的关系、矛盾或变化提炼为一个真实立体纸雕隐喻，以精确纸层、克制留白、柔和光影和图文一体的编辑排版完成高级概念海报。该 style 负责纸张材质、隐喻转译、空间关系、比例重构和视觉气质；平台确认、文章摘要、提示词组装与文件保存由 `punk-cover` 负责。
 
 ## Use For
 

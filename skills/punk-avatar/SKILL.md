@@ -1,11 +1,11 @@
 ---
 name: punk-avatar
-description: Create avatars, pet portraits, keepsake cards, surreal paper portraits, or reusable prompts from images or text with bundled Punk styles. Resolves style and mode, preserves recognizable traits, saves the prompt, and generates an image when available.
+description: Create reusable avatar, pet portrait, keepsake card, and surreal paper portrait prompts from images or text with bundled Punk styles. Resolves style and mode, preserves recognizable traits, then saves and returns prompt text only.
 ---
 
 # Punk Avatar
 
-Create one avatar or avatar-derived artwork by compiling subject data and exactly one bundled style into the avatar blueprint.
+Create one avatar or avatar-derived artwork prompt by compiling subject data and exactly one bundled style into the avatar blueprint.
 
 ## Resources
 
@@ -26,9 +26,9 @@ Create one avatar or avatar-derived artwork by compiling subject data and exactl
 3. **Resolve one style and any mode.**
    - Use a specified catalog style or an unambiguous complete visual direction that matches one only when the catalog subject and `META.md` input mode fit. On mismatch, ask for a compatible style or input; `pixel-avatar` supports image or text.
    - Otherwise recommend 2–3 styles compatible with both the subject and available input mode, then ask the user to choose. Auto-select only when explicitly requested.
-   - For `surreal-pop-up-paper-landscape`, map comparison requests to `before-after` and single-result requests to `final-artwork`. If no mode is clear, ask which one and stop; never generate both by default.
+   - For `surreal-pop-up-paper-landscape`, map comparison requests to `before-after` and single-result requests to `final-artwork`. If no mode is clear, ask which one and stop; never compile both by default.
 
-4. **Gate.** Stop without creating files or generating when style or required mode is unresolved. Missing ratio is not a blocker.
+4. **Gate.** Stop without creating files or compiling a prompt when style or required mode is unresolved. Missing ratio is not a blocker.
 
 5. **Compile.** Read the blueprint and exactly one selected `META.md` and `STYLE.md`, plus the selected surreal mode reference when applicable.
    - Fuse subject fields with the style’s subject treatment, composition, background, line/texture, color, typography, likeness, and negative constraints.
@@ -36,8 +36,7 @@ Create one avatar or avatar-derived artwork by compiling subject data and exactl
    - Resolve every style placeholder. Preserve recognizable traits for image input without promising biometric or photorealistic duplication unless the style requires realistic structure.
    - Keep the silhouette and identifying features readable at profile size and safely inside the crop. Do not include analysis or style-selection rationale.
 
-6. **Save, then generate.**
+6. **Save and return prompt text.**
    - Prompt: `punk-assets/punk-avatar/{slug}/prompts/avatar.md`
-   - Generate one image by default when an image tool such as `image_gen` is available, unless the user requests prompt-only output.
-   - Save only an explicit current-run path, URL, or bytes as `punk-assets/punk-avatar/{slug}/avatar.png`. Never infer artifacts by scanning shared output directories or create a fake file from an inline-only preview.
-   - If generation is unavailable, return the prompt path and full prompt.
+   - Write prompt text only, then return the full prompt and saved path.
+   - Never call image-generation tools or generate, download, or save image files.

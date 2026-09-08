@@ -2,17 +2,17 @@
 
 ## 项目结构与模块组织
 
-本仓库用于维护可复用的 Codex Skills。核心技能位于 `skills/punk-cover/` 和 `skills/punk-avatar/`，每个技能都包含自己的完整运行资源。
+本仓库用于维护可复用的 Codex 视觉提示词 Skills。核心技能位于 `skills/punk-cover/` 和 `skills/punk-avatar/`，每个技能都包含自己的完整运行资源。
 
-- `README.md`：说明安装方式、使用示例、支持风格和公开目录结构。
+- `README.md`：说明安装方式、使用示例和提示词输出约定。
 - `skills/{skill-id}/SKILL.md`：技能的主要行为规范和工作流，是最重要的修改入口。
 - `skills/{skill-id}/agents/openai.yaml`：面向 Agent 的配置文件。
 - `skills/{skill-id}/references/`：风格目录和最终提示词组装骨架。
 - `skills/{skill-id}/styles/{style-id}/META.md`：风格元数据、适用范围和推荐依据。
 - `skills/{skill-id}/styles/{style-id}/STYLE.md`：可复用视觉风格正文。
 - `skills/{skill-id}/scripts/`：该技能的轻量验证脚本。
-- `screenshots/`：README 中使用的风格示例图。
-- 运行时生成的 `punk-assets/` 属于本地产物，不应作为核心源码维护。
+- `screenshots/`：风格示例图。
+- 运行时生成的 `punk-assets/` 仅包含提示词文本，属于本地产物，不应作为核心源码维护。
 
 ## 构建、测试与开发命令
 
@@ -40,9 +40,10 @@ Markdown 内容应简洁、直接、可执行。行为规则优先使用清晰�
 - 缺少平台或风格时，会停在确认步骤；
 - 最终提示词只填充一个选定模板；
 - 长文章会被摘要化，不会原样写入元数据；
-- 输出路径遵循 `punk-assets/punk-cover/{slug}/...`。
+- 只保存并返回提示词文本，不调用图像生成工具或保存图片；
+- 输出路径遵循 `punk-assets/punk-cover/{slug}/prompts/...`。
 
-新增风格时，需要同步更新对应技能内的 `styles/{style-id}/META.md`、`styles/{style-id}/STYLE.md`、风格目录、README 风格表和相关截图引用。
+新增风格时，需要同步更新对应技能内的 `styles/{style-id}/META.md`、`styles/{style-id}/STYLE.md`、风格目录、`references/style-catalog.md` 和验证脚本中的风格数量。
 
 ## Commit 与 Pull Request 规范
 

@@ -1,11 +1,11 @@
 ---
 name: punk-cover
-description: Create cover images or reusable prompts for articles, Xiaohongshu, WeChat, X, posters, and long-form text with bundled Punk styles. Confirms the target and style, summarizes source content, saves the prompt, and generates an image when available.
+description: Create reusable cover-image prompts for articles, Xiaohongshu, WeChat, X, posters, and long-form text with bundled Punk styles. Confirms the target and style, summarizes source content, then saves and returns prompt text only.
 ---
 
 # Punk Cover
 
-Create one editorial cover per target by compiling derived content and exactly one bundled style into the cover blueprint.
+Create one editorial cover prompt per target by compiling derived content and exactly one bundled style into the cover blueprint.
 
 ## Resources
 
@@ -21,7 +21,7 @@ Create one editorial cover per target by compiling derived content and exactly o
 2. **Resolve the target.**
    - Xiaohongshu: `3:4`; WeChat public account: `2.35:1`; X: `5:2`.
    - Preserve a custom ratio. Derive it from exact dimensions when no ratio is given; ask which controls if dimensions and ratio conflict.
-   - Default to one image. A multi-size suite requires at least two explicit targets and one independently composed prompt/image per target—never crop, stretch, pad, grid, or contact-sheet one composition.
+   - Default to one prompt. A multi-size suite requires at least two explicit targets and one independently composed prompt per target—never reuse one composition with crop, stretch, padding, grid, or contact-sheet instructions.
    - Ask for the platform/ratio only when none is provided and the user has not said `auto`. Under `auto`, infer the platform from stated use; with no publication context, use `3:4`.
 
 3. **Resolve one style.**
@@ -30,7 +30,7 @@ Create one editorial cover per target by compiling derived content and exactly o
    - Otherwise recommend exactly three eligible styles from the catalog, with one content-specific sentence each, and ask the user to choose or provide a custom direction.
    - Auto-select only when the user explicitly asks to decide automatically.
 
-4. **Gate.** When either target or style is unresolved, stop after asking. For article-only input, ask for the platform/ratio and include three style recommendations in the same response. Do not create files or generate an image yet.
+4. **Gate.** When either target or style is unresolved, stop after asking. For article-only input, ask for the platform/ratio and include three style recommendations in the same response. Do not create files or compile a prompt yet.
 
 5. **Compile.** Read the blueprint and exactly one selected `META.md` and `STYLE.md`. Fuse the task fields with the style’s materials, spatial logic, title treatment, typography, texture, palette, `style_anchors`, `cover_shape_adaptation`, `must_preserve`, and `avoid_when_applying_to_cover`.
    - Produce one integrated cover brief; do not append the raw style atom, mix styles, or add a second style section.
@@ -39,9 +39,8 @@ Create one editorial cover per target by compiling derived content and exactly o
    - Do not include analysis or style-selection rationale.
    - For each suite target, preserve content, metaphor, style, material, and palette while recomposing scale, typography, whitespace, reading direction, and spatial behavior.
 
-6. **Save, then generate.**
+6. **Save and return prompt text.**
    - Single prompt: `punk-assets/punk-cover/{slug}/prompts/cover.md`
    - Suite prompts: `punk-assets/punk-cover/{slug}/prompts/cover-{ratio-or-size}.md`
-   - Generate one image per prompt by default when an image tool such as `image_gen` is available, unless the user requests prompt-only output.
-   - Save only an explicit current-run path, URL, or bytes as `punk-assets/punk-cover/{slug}/cover.png` or `punk-assets/punk-cover/{slug}/cover-{ratio-or-size}.png`. Never infer artifacts by scanning shared output directories or create a fake file from an inline-only preview.
-   - If generation is unavailable, return the prompt path and full prompt.
+   - Write prompt text only, then return the full prompt and saved path for each target.
+   - Never call image-generation tools or generate, download, or save image files.
