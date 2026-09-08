@@ -33,6 +33,7 @@ Create one avatar or avatar-derived artwork prompt by compiling subject data and
 5. **Compile.** Read the blueprint and exactly one selected `META.md` and `STYLE.md`, plus the selected surreal mode reference when applicable.
    - Fuse subject fields with the style’s subject treatment, composition, background, line/texture, color, typography, likeness, and negative constraints.
    - Produce one integrated avatar brief; do not append the raw style atom, mix styles, add a second style section, or import cover title/platform/article rules.
+   - Inline the selected style’s concrete visual rules so the prompt is self-contained. Never include its name, Style ID, resource path, or a reference to a “selected style” in the saved prompt or final response.
    - Resolve every style placeholder. Preserve recognizable traits for image input without promising biometric or photorealistic duplication unless the style requires realistic structure.
    - Keep the silhouette and identifying features readable at profile size and safely inside the crop. Do not include analysis or style-selection rationale.
 

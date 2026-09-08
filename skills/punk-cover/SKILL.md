@@ -34,6 +34,7 @@ Create one editorial cover prompt per target by compiling derived content and ex
 
 5. **Compile.** Read the blueprint and exactly one selected `META.md` and `STYLE.md`. Fuse the task fields with the style’s materials, spatial logic, title treatment, typography, texture, palette, `style_anchors`, `cover_shape_adaptation`, `must_preserve`, and `avoid_when_applying_to_cover`.
    - Produce one integrated cover brief; do not append the raw style atom, mix styles, or add a second style section.
+   - Inline the selected style’s concrete visual rules so the prompt is self-contained. Never include its name, Style ID, resource path, or a reference to a “selected style” in the saved prompt or final response.
    - Resolve every `{{...}}` placeholder. Merge unmatched details into the nearest section.
    - Keep the complete title readable; a long title may use a short visual A-layer plus complete B-layer and optional C-layer. If the selected style/user explicitly requests no text, retain the title only for semantic derivation and omit visible typography.
    - Do not include analysis or style-selection rationale.

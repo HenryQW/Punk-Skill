@@ -23,12 +23,18 @@ if (!failures.length) {
     "punk-assets/punk-cover/{slug}/prompts/cover.md",
     "Never copy the source body",
     "Open Graph (OG): `2400 × 1260` (`40:21`)",
+    "Never include its name, Style ID, resource path",
     "Never call image-generation tools or generate, download, or save image files.",
   ]) {
     if (!skill.includes(contract)) fail(`SKILL.md missing contract: ${contract}`);
   }
   for (const forbidden of ["image_gen", "/cover.png"]) {
     if (skill.includes(forbidden)) fail(`SKILL.md contains forbidden image output: ${forbidden}`);
+  }
+
+  const blueprint = read(path.join(skillDir, "references/cover-prompt-blueprint.md"));
+  for (const forbidden of ["{style_name}", "{style_id}"]) {
+    if (blueprint.includes(forbidden)) fail(`Prompt blueprint exposes style reference: ${forbidden}`);
   }
 
   const stylesDir = path.join(skillDir, "styles");

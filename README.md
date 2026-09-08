@@ -45,7 +45,7 @@ Use $punk-avatar to create a 像素头像 prompt from this photo.
 
 ## 输出
 
-Skills 只生成提示词文本，不调用图像生成工具，也不生成、下载或保存图片。提示词默认保存在本地 `punk-assets/`：
+Skills 只生成提示词文本，不调用图像生成工具，也不生成、下载或保存图片。最终提示词会完整内嵌所选风格的具体视觉规则，不引用风格名称、Style ID 或资源路径。提示词默认保存在本地 `punk-assets/`：
 
 ```text
 punk-assets/

@@ -30,12 +30,18 @@ if (!failures.length) {
     "exactly one bundled style",
     "Default to `1:1`",
     "punk-assets/punk-avatar/{slug}/prompts/avatar.md",
+    "Never include its name, Style ID, resource path",
     "Never call image-generation tools or generate, download, or save image files.",
   ]) {
     if (!skill.includes(contract)) fail(`SKILL.md missing contract: ${contract}`);
   }
   for (const forbidden of ["image_gen", "/avatar.png"]) {
     if (skill.includes(forbidden)) fail(`SKILL.md contains forbidden image output: ${forbidden}`);
+  }
+
+  const blueprint = read(path.join(skillDir, "references/avatar-prompt-blueprint.md"));
+  for (const forbidden of ["{style_name}", "{style_id}", "`polaroid-keepsake`"]) {
+    if (blueprint.includes(forbidden)) fail(`Prompt blueprint exposes style reference: ${forbidden}`);
   }
 
   const catalog = read(path.join(skillDir, "references/style-catalog.md"));
