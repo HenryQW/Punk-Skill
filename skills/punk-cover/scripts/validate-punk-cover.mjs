@@ -21,27 +21,49 @@ if (!failures.length) {
   for (const contract of [
     "exactly one bundled style",
     ".context/{slug}/{style-id}.md",
-    "Never copy the source body",
+    "The source body is context only",
+    "Build an exact visible-text whitelist",
     "Open Graph (OG): `2400 × 1260` (`40:21`)",
+    "Do not infer or optimize for social-platform presets.",
     "Never include its name, Style ID, resource path",
     "Never call image-generation tools or generate, download, or save image files.",
   ]) {
     if (!skill.includes(contract)) fail(`SKILL.md missing contract: ${contract}`);
   }
-  for (const forbidden of ["image_gen", "/cover.png"]) {
-    if (skill.includes(forbidden)) fail(`SKILL.md contains forbidden image output: ${forbidden}`);
+  for (const forbidden of ["image_gen", "/cover.png", "Xiaohongshu", "WeChat"]) {
+    if (skill.includes(forbidden)) fail(`SKILL.md contains forbidden contract: ${forbidden}`);
   }
 
   const blueprint = read(path.join(skillDir, "references/cover-prompt-blueprint.md"));
-  for (const forbidden of ["{style_name}", "{style_id}"]) {
-    if (blueprint.includes(forbidden)) fail(`Prompt blueprint exposes style reference: ${forbidden}`);
+  for (const contract of [
+    "## Visible Text Whitelist",
+    "## Semantic Context — Never Render as Text",
+    "Do not invent, paraphrase, or render any other words",
+  ]) {
+    if (!blueprint.includes(contract)) fail(`Prompt blueprint missing contract: ${contract}`);
+  }
+  for (const forbidden of ["{style_name}", "{style_id}", "{platform}"]) {
+    if (blueprint.includes(forbidden)) fail(`Prompt blueprint exposes forbidden reference: ${forbidden}`);
+  }
+
+  const businessStyle = read(path.join(skillDir, "styles/business-magazine-front-page/STYLE.md"));
+  for (const contract of [
+    "可从来源内容准确提炼最多一个短副标题",
+    "完整文章只用于理解主题、判断和视觉隐喻",
+    "除白名单外，不得生成、改写或虚构任何文字",
+  ]) {
+    if (!businessStyle.includes(contract)) fail(`Business magazine style missing contract: ${contract}`);
+  }
+
+  const catalog = read(path.join(skillDir, "references/style-catalog.md"));
+  for (const forbidden of ["Xiaohongshu", "WeChat", "For X,"]) {
+    if (catalog.includes(forbidden)) fail(`Style catalog contains platform ranking: ${forbidden}`);
   }
 
   const stylesDir = path.join(skillDir, "styles");
   const styleIds = fs.readdirSync(stylesDir).filter((id) =>
     fs.statSync(path.join(stylesDir, id)).isDirectory(),
   );
-  const catalog = read(path.join(skillDir, "references/style-catalog.md"));
   const catalogIds = new Set(
     [...catalog.matchAll(/\|\s*[^|\n]+\|\s*`([a-z0-9-]+)`\s*\|/g)].map((match) => match[1]),
   );

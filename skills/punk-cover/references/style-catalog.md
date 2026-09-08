@@ -38,7 +38,4 @@ Use only these user-visible styles. Paths are relative to the skill root; load o
 
 ## Recommendation Priority
 
-1. Match explicit visual requirements and the table’s `Best For` description.
-2. For Xiaohongshu tutorials, prefer `巨型透视中文标题`, `超大标题图文穿插`, `黑红剪影`, `复古手撕拼贴`, `方块世界`, or `积木世界`.
-3. For WeChat explainers, prefer `商业杂志头版`, `咨询报告视觉`, `黑白极简概念`, `复古油墨点阵隐喻`, `极简公共空间摄影`, or `法式极简墨线海报`.
-4. For X, prefer `超大标题图文穿插`, `商业杂志头版`, `黑白极简概念`, `复古油墨点阵隐喻`, `银色锡纸蓝字`, or `黑白灰先锋几何`.
+Match explicit visual requirements and the table’s `Best For` description. Do not rank styles by social platform.

@@ -23,15 +23,15 @@ Use $punk-avatar ...
 
 ### `punk-cover`
 
-把文章、笔记、推文或主题草稿整理为适配目标平台和选定风格的封面图提示词。
+把文章、笔记、推文或主题草稿整理为 Open Graph 或指定尺寸、指定风格的封面图提示词。
 
 ```text
-Use $punk-cover to create a WeChat cover prompt in 商业杂志头版 style:
+Use $punk-cover to create a 1600 × 900 cover prompt in 商业杂志头版 style:
 
 这里粘贴文章内容
 ```
 
-支持小红书、微信公众号、X / Twitter、Open Graph（`2400 × 1260`）和自定义比例。完整风格列表见 [`skills/punk-cover/references/style-catalog.md`](./skills/punk-cover/references/style-catalog.md)。
+未提供尺寸时默认使用 Open Graph（`2400 × 1260`）；也支持在请求中直接提供任意尺寸。不会推断或针对社交平台预设进行优化。完整风格列表见 [`skills/punk-cover/references/style-catalog.md`](./skills/punk-cover/references/style-catalog.md)。
 
 ### `punk-avatar`
 
