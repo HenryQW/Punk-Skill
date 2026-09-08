@@ -29,7 +29,7 @@ if (!failures.length) {
   for (const contract of [
     "exactly one bundled style",
     "Default to `1:1`",
-    "punk-assets/punk-avatar/{slug}/prompts/avatar.md",
+    ".context/{slug}/{style-id}.md",
     "Never include its name, Style ID, resource path",
     "Never call image-generation tools or generate, download, or save image files.",
   ]) {

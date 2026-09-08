@@ -12,7 +12,7 @@
 - `skills/{skill-id}/styles/{style-id}/STYLE.md`：可复用视觉风格正文。
 - `skills/{skill-id}/scripts/`：该技能的轻量验证脚本。
 - `screenshots/`：风格示例图。
-- 运行时生成的 `punk-assets/` 仅包含提示词文本，属于本地产物，不应作为核心源码维护。
+- 运行时生成的 `.context/` 仅包含提示词文本，属于本地产物，不应作为核心源码维护。
 
 ## 构建、测试与开发命令
 
@@ -41,7 +41,7 @@ Markdown 内容应简洁、直接、可执行。行为规则优先使用清晰�
 - 最终提示词只填充一个选定模板，并内嵌其具体视觉规则，不引用风格名称、Style ID 或资源路径；
 - 长文章会被摘要化，不会原样写入元数据；
 - 只保存并返回提示词文本，不调用图像生成工具或保存图片；
-- 输出路径遵循 `punk-assets/punk-cover/{slug}/prompts/...`。
+- 输出路径遵循 `.context/{slug}/...`。
 
 新增风格时，需要同步更新对应技能内的 `styles/{style-id}/META.md`、`styles/{style-id}/STYLE.md`、风格目录、`references/style-catalog.md` 和验证脚本中的风格数量。
 

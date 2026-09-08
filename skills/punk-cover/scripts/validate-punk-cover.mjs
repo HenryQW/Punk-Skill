@@ -20,7 +20,7 @@ if (!failures.length) {
   const skill = read(path.join(skillDir, "SKILL.md"));
   for (const contract of [
     "exactly one bundled style",
-    "punk-assets/punk-cover/{slug}/prompts/cover.md",
+    ".context/{slug}/{style-id}.md",
     "Never copy the source body",
     "Open Graph (OG): `2400 × 1260` (`40:21`)",
     "Never include its name, Style ID, resource path",
