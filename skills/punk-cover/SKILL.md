@@ -41,7 +41,6 @@ Create one editorial cover prompt per target by compiling derived content and ex
    - For each suite target, preserve content, metaphor, style, material, and palette while recomposing scale, typography, whitespace, reading direction, and spatial behavior.
 
 6. **Save and return prompt text.**
-   - Single prompt: `punk-assets/punk-cover/{slug}/prompts/cover.md`
-   - Suite prompts: `punk-assets/punk-cover/{slug}/prompts/cover-{ratio-or-size}.md`
+   - Single prompt: `.context/{slug}/{style-id}.md`
    - Write prompt text only, then return the full prompt and saved path for each target.
    - Never call image-generation tools or generate, download, or save image files.

@@ -38,6 +38,6 @@ Create one avatar or avatar-derived artwork prompt by compiling subject data and
    - Keep the silhouette and identifying features readable at profile size and safely inside the crop. Do not include analysis or style-selection rationale.
 
 6. **Save and return prompt text.**
-   - Prompt: `punk-assets/punk-avatar/{slug}/prompts/avatar.md`
+   - Single prompt: `.context/{slug}/{style-id}.md`
    - Write prompt text only, then return the full prompt and saved path.
    - Never call image-generation tools or generate, download, or save image files.
